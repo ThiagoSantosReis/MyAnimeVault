@@ -28,4 +28,7 @@ public class Genre {
     }
 
 
+    public Genre(GenreEnum genreEnum) {
+        this.name = genreEnum;
+    }
 }

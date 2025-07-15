@@ -1,10 +1,8 @@
 package com.mavconnect.MyAnimeVault.model;
 
+import com.mavconnect.MyAnimeVault.model.dto.AnimeApiDataDTO;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity(name = "anime")
 @Table(name = "anime")
@@ -12,6 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Anime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,4 +27,13 @@ public class Anime {
     private Genre genre;
 
 
+    public Anime(AnimeApiDataDTO data) {
+        this.title = data.title();
+        this.type = data.type();
+        this.airing = data.airing();
+        this.episodes = data.episodes();
+        this.score = Double.parseDouble(data.score());
+        this.synopsis = data.synopsis();
+        this.year = Integer.parseInt(data.releaseYear());
+    }
 }
