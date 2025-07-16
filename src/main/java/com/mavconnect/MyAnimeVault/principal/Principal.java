@@ -32,13 +32,13 @@ public class Principal {
     }
 
     public void getAnimeData(){
-        System.out.println("Enter anime name: ");
+        /*System.out.println("Enter anime name: ");
         String name = reader.nextLine().toLowerCase();
         name = name.contains(" ") ? name.replaceAll(" ", "+") : name;
         String json = JikanApiService.getData(BASE_URL+name);
         JikanResponseDTO data = converter.getData(json, JikanResponseDTO.class);
         Anime anime = selectAnime(data);
-
+        animeRepository.save(anime);*/
 
     }
 

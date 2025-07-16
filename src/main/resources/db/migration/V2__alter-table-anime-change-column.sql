@@ -1,0 +1,1 @@
+alter table anime change column releaseYear release_year bigint;

@@ -9,20 +9,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyAnimeVaultApplication implements CommandLineRunner {
-
-	@Autowired
-	private AnimeRepository animeRepository;
-	@Autowired
-	private GenreRepository genreRepository;
+public class MyAnimeVaultApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MyAnimeVaultApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		Principal principal = new Principal(animeRepository, genreRepository);
-		principal.showData();
-	}
 }

@@ -21,7 +21,8 @@ public class Anime {
     private Integer episodes;
     private Double score;
     private String synopsis;
-    private Integer year;
+    @Column(name = "releaseYear")
+    private Integer releaseYear;
     @ManyToOne
     @JoinColumn(name = "genre_id")
     private Genre genre;
@@ -34,6 +35,6 @@ public class Anime {
         this.episodes = data.episodes();
         this.score = Double.parseDouble(data.score());
         this.synopsis = data.synopsis();
-        this.year = Integer.parseInt(data.releaseYear());
+        this.releaseYear = Integer.parseInt(data.releaseYear());
     }
 }
