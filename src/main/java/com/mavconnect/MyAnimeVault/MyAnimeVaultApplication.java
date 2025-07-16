@@ -1,6 +1,5 @@
 package com.mavconnect.MyAnimeVault;
 
-import com.mavconnect.MyAnimeVault.principal.Principal;
 import com.mavconnect.MyAnimeVault.repository.AnimeRepository;
 import com.mavconnect.MyAnimeVault.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;

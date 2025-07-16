@@ -30,6 +30,7 @@ public class AnimeService {
     GenreRepository genreRepository;
 
     public Anime findAnimeInApi(String title){
+        title = title.contains(" ") ? title.replaceAll(" " ,"+") : title;
         AnimeApiDataDTO animeData = JikanApiService.getData(title);
         String genreName = animeData.genres().get(0).name();
         GenreEnum genreEnum = GenreEnum.fromString(genreName);
@@ -54,5 +55,16 @@ public class AnimeService {
                 .map(AnimeDTO::new)
                 .toList();
         return animeDto;
+    }
+
+    public List<AnimeDTO> listTop5() {
+        return animeRepository.findTop5ByOrderByScoreDesc()
+                .stream().map(AnimeDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    public AnimeDTO getAnime(Long id) {
+        Optional<Anime> anime = animeRepository.findById(id);
+        return anime.map(AnimeDTO::new).orElse(null);
     }
 }
